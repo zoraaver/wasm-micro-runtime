@@ -99,7 +99,7 @@ libc_wasi_parse(char *arg, libc_wasi_parse_context_t *ctx)
             >= sizeof(ctx->map_dir_list) / sizeof(char *)) {
             printf("Only allow max map dir number %d\n",
                    (int)(sizeof(ctx->map_dir_list) / sizeof(char *)));
-            return 1;
+            return LIBC_WASI_PARSE_RESULT_NEED_HELP;
         }
         ctx->map_dir_list[ctx->map_dir_list_size++] = arg + 10;
     }

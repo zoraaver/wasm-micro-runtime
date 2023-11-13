@@ -786,7 +786,7 @@ os_thread_signal_init()
     if (thread_signal_inited)
         return 0;
 
-#if WASM_DISABLE_STACK_HW_BOUND_CHECK == 0
+#if WASM_DISABLE_STACK_HW_BOUND_CHECK == 0 && WINAPI_PARTITION_DESKTOP != 0
     ret = SetThreadStackGuarantee(&StackSizeInBytes);
 #else
     ret = true;
